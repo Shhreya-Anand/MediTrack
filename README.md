@@ -16,17 +16,19 @@ Scalability: Easily expandable to other healthcare domains such as patient check
 Hardware and Software Requirements
 
 #Hardware
-Raspberry Pi (any version with internet connectivity)
-RFID Reader Module (e.g., RC522)
-RFID Tags for patient identification
-jumper wires, and connectors
-Software
-Raspberry Pi OS (latest version)
-Python 3.x
-Email SMTP server (e.g., Gmail SMTP)
-Node Js and Java script 
-MongoDB for data logging and storing medication schedules
-System Architecture
+
+1.Raspberry Pi (any version with internet connectivity)
+2.RFID Reader Module (e.g., RC522)
+3.RFID Tags for patient identification
+4.jumper wires, and connectors
+
+#Software
+1.Raspberry Pi OS (latest version)
+2.Python 3.x
+3.Email SMTP server (e.g., Gmail SMTP)
+4.Node Js and Java script 
+5.MongoDB for data logging and storing medication schedules
+6.System Architecture
 
 #RFID Reader: The patient taps their RFID tag, and the system logs the time.
 Backend Logic: The system checks if the medication was taken at the prescribed time.
