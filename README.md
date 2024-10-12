@@ -2,7 +2,7 @@
 
 MediTrack is an innovative healthcare solution that utilizes RFID technology to track patient medication adherence. By integrating RFID tags and a notification system, MediTrack ensures that patients take their medication on time. In case of missed or delayed doses, the system sends notifications via email or push notifications, allowing healthcare providers and patients to stay on top of their medication schedules.
 
-**Project Overview**
+##Project Overview**
 
 MediTrack leverages RFID technology and integrates it with an email and push notification system to monitor whether patients are taking their medications on time. If a patient takes their medication at the wrong time or misses it, the system sends a notification to the healthcare and to them to take the medicines on time, ensuring timely medication adherence.
 
