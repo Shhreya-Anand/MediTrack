@@ -23,19 +23,30 @@
   overflow-x: hidden;
   background-color: #d9d9d9;
   color: #000000;
+  overflow-y: scroll;
 }
 
 .nav {
   width: 100vw;
   height: 5vw;
   border-bottom: 1px solid #000000;
+  overflow-y: scroll;
+
+}
+
+.nav-title{
+  display: flex;
+  height: 100%;
+  align-items: center;
 }
 
 .main-body {
+  overflow-y: scroll;
   height: 95vh;
   display: flex;
   margin: 0;
-  width: 100vw;
+  width: calc(100vw - 20px);
+  padding: 0 10px;
 }
 
 .left-section {

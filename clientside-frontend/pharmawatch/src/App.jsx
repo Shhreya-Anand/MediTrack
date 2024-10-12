@@ -11,13 +11,13 @@ function App() {
       <div className="app">
         <div>
           <div className="nav">
-            <div>PHARMAWATCH</div>
+            <div className="nav-title">PHARMAWATCH</div>
           </div>
           <div className="main-body">
             <div className="left-section">
               <div className="left-section-selector">Calendar</div>
               <div className="left-section-selector">Dashboard</div>
-              <div className="left-section-checklist-container">check list placeholder</div>
+              <div className="left-section-checklist-container">paitent list placeholder</div>
               {/* have a map that returns rows of them */}
             </div>
             <div className="right-section">
@@ -40,7 +40,7 @@ function App() {
                 </div>
               </div>
               <div className="info-tiles-section">
-                <div className="appointment-history">appot hist</div>
+                <div className="appointment-history">pill list</div>
                 <div className="stacked-tiles">
                   <div className="prescription-history">per his</div>
                   <div className="summery-graph">summery g</div>
