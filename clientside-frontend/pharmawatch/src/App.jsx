@@ -24,7 +24,7 @@ function App() {
               <div className="right-top-section">
                 <div className="right-top-row">
                   <div className="today-progress-container">
-                    <div className="today-progress-chart"></div>
+                    <div className="today-progress-chart">progress graph</div>
                     <div className="today-progress-text">TODAY’S PROGRESS</div>
                   </div>
                   <div className="chat-box-container">chat</div>
