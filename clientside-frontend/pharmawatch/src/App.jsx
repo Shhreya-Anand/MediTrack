@@ -42,7 +42,7 @@ function App() {
               <div className="info-tiles-section">
                 <div className="appointment-history">appot hist</div>
                 <div className="stacked-tiles">
-                  <div className="perscription-histoty">per his</div>
+                  <div className="prescription-history">per his</div>
                   <div className="summery-graph">summery g</div>
                 </div>
               </div>
