@@ -1,6 +1,7 @@
 #root {
   height: auto;
   width: auto;
+  box-sizing: border-box;
 }
 
 .logo {
@@ -33,6 +34,8 @@
 .main-body {
   height: 95vh;
   display: flex;
+  margin: 0;
+  width: 100vw;
 }
 
 .left-section {
@@ -62,7 +65,49 @@
 
 
 .right-section {
-  width: auto;
+  width: calc(70vw - 20px);
+}
+
+.right-top-section{
+  width: 100%;
+}
+
+.right-top-row{
+  height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.today-progress-container{
+
+}
+
+.today-progress-text{
+
+}
+
+.right-bottom-row{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+.info-tiles-section{
+  display: flex;
+  flex-direction: row;
+}
+
+.appointment-history{
+  width: 50%;
+}
+
+.stacked-tiles{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
 }
 
 @keyframes logo-spin {

@@ -22,13 +22,29 @@ function App() {
             </div>
             <div className="right-section">
               <div className="right-top-section">
-                <div className="right-top-row"></div>
-                <div className="right-bottow-row"></div>
+                <div className="right-top-row">
+                  <div className="today-progress-container">
+                    <div className="today-progress-chart"></div>
+                    <div className="today-progress-text">TODAY’S PROGRESS</div>
+                  </div>
+                  <div className="chat-box-container">chat</div>
+                </div>
+                <div className="right-bottom-row">
+                  <div className="paitent-name-container">name + image</div>
+                  <div className="paitent-info-container">
+                    <div className="paiten-info-row">SEX</div>
+                    <div className="paiten-info-row">Blood Group</div>
+                    <div className="paiten-info-row">Age</div>
+                  </div>
+                  <div className="tacking">tracking</div>
+                </div>
               </div>
-              <div className="info section">
-                 <div className="appointment-history">appot hist</div>
-                 <div className="perscription-histoty">per his</div>
-                 <div className="summery-graph">summery g</div>
+              <div className="info-tiles-section">
+                <div className="appointment-history">appot hist</div>
+                <div className="stacked-tiles">
+                  <div className="perscription-histoty">per his</div>
+                  <div className="summery-graph">summery g</div>
+                </div>
               </div>
             </div>
           </div>
