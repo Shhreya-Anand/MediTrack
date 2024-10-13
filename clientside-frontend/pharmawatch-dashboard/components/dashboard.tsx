@@ -81,7 +81,7 @@ export default function Component() {
   };
 
 
-    const [allMedications, setAllMedications] = useState<string[]>([]);
+    const [allMedications, setAllMedications] = useState<string[]>(["Tylenol", "Advil", "DayQuil", "NightQuil", ]);
 
     useEffect(() => {
       const fetchMedications = async () => {
@@ -107,7 +107,7 @@ export default function Component() {
     <div className="flex h-screen bg-gray-100">
       {/* Sidebar */}
       <div className="w-64 bg-white p-4 shadow-md">
-        <h1 className="mb-6 text-2xl font-bold">PHARMAWATCH</h1>
+        <h1 className="mb-6 text-2xl font-bold">MediTrack</h1>
         <nav>
           <Button variant="ghost" className="w-full justify-start">
             Calendar
@@ -118,10 +118,10 @@ export default function Component() {
         </nav>
         <div className="mt-6 space-y-2">
         <script src="/home/adpifive/PharmaWatch-1/clientside-frontend/pharmawatch-dashboard/HackHarvard/read_database.js"/>
-          {[...allMedications].map((_, i) => (
+          {[...allMedications].map((medications, i) => (
             <div key={i} className="flex items-center space-x-2">
               <div className="h-4 w-4 rounded-full bg-purple-200" />
-              <div className="h-2 flex-1 bg-gray-200" />
+              <div className="h-6 flex-1"> {medications}</div>
               <input type="checkbox" className="h-4 w-4 rounded border-gray-300" />
             </div>
           ))}
