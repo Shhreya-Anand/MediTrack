@@ -6,8 +6,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
 import { Heart, Activity } from "lucide-react"
 import { useState } from 'react';
-import { data } from './util'
+import { data } from './util';
 import "./dashboard.css";
+import dataanalysisimg from "../Resource/dataanalysis.jpeg";
+import Image from "next/image";
 
 // Function to calculate Deviation in Minutes
 const calculateDeviationMinutes = (prescribedTime, tapTime) => {
@@ -145,7 +147,7 @@ export default function Component() {
                 </div>
                 <div>
                   <p className="text-sm font-semibold">Blood Group</p>
-                  <p>A +ve</p>
+                  <p>A+</p>
                 </div>
                 <div>
                   <p className="text-sm font-semibold">Age</p>
@@ -160,7 +162,7 @@ export default function Component() {
                   <p>Cardiology</p>
                 </div>
                 <div>
-                  <button onClick={handlePrediction}>Patient 1</button>
+                  <button onClick={handlePrediction} className="rick-perdict-button">Patient Risk Prediction</button>
                   {prediction && <p>{prediction}</p>} {/* Display prediction message */}
                   <p>Risk Level: {riskLevel}</p> {/* Display risk level */}
                 </div>
@@ -243,6 +245,7 @@ export default function Component() {
           <Card>
             <CardHeader>
               <CardTitle>PROGRESS PAST MONTH:</CardTitle>
+                <Image src={dataanalysisimg} alt={"data anlysis image"}/>
             </CardHeader>
             <CardContent>{/* Add progress chart or data here */}</CardContent>
           </Card>

@@ -1,3 +1,9 @@
 .progress-color{
     color: #ADD8E6;
 }
+
+.rick-perdict-button{
+    background-color: #ADD8E6;
+    border-radius: 4px;
+    padding: 2px 4px;
+}
