@@ -7,6 +7,7 @@ import { Progress } from "@/components/ui/progress"
 import { Heart, Activity } from "lucide-react"
 import { useState } from 'react';
 import { data } from './util'
+import "./dashboard.css";
 
 // Function to calculate Deviation in Minutes
 const calculateDeviationMinutes = (prescribedTime, tapTime) => {
@@ -107,7 +108,7 @@ export default function Component() {
             <div className="relative h-24 w-24">
               <Progress value={75} className="h-full w-full rounded-full" />
               <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-lg font-semibold">75%</span>
+                <span className="text-lg font-semibold progress-color">75%</span>
               </div>
             </div>
             <h2 className="text-2xl font-bold">TODAYS PROGRESS</h2>
