@@ -1,6 +1,5 @@
 "use client";
 
-import { readFile } from "fs/promises";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -8,7 +7,9 @@ import { Progress } from "@/components/ui/progress"
 import { Heart, Activity } from "lucide-react"
 import { useState, useEffect } from 'react';
 import { data } from './util';
-
+import dataanalysisimg from "../Resource/dataanalysis.jpeg";
+import Image from "next/image";
+import "./dashboard.css";
 
 
 
@@ -135,7 +136,7 @@ export default function Component() {
             <div className="relative h-24 w-24">
               <Progress value={75} className="h-full w-full rounded-full" />
               <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-lg font-semibold">75%</span>
+                <span className="text-lg font-semibold progress-color">75%</span>
               </div>
             </div>
             <h2 className="text-2xl font-bold">TODAYS PROGRESS</h2>
@@ -187,7 +188,7 @@ export default function Component() {
                   <p>Cardiology</p>
                 </div>
                 <div>
-                  <button onClick={handlePrediction}>Patient 1</button>
+                <button onClick={handlePrediction} className="rick-perdict-button">Patient Risk Prediction</button>
                   {prediction && <p>{prediction}</p>} {/* Display prediction message */}
                   <p>Risk Level: {riskLevel}</p> {/* Display risk level */}
                 </div>
@@ -270,6 +271,7 @@ export default function Component() {
           <Card>
             <CardHeader>
               <CardTitle>PROGRESS PAST MONTH:</CardTitle>
+              <Image src={dataanalysisimg} alt={"data anlysis image"}/>
             </CardHeader>
             <CardContent>{/* Add progress chart or data here */}</CardContent>
           </Card>
