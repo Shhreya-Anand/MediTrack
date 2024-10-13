@@ -14,7 +14,7 @@ const client = twilio(accountSid, authToken);
 
 async function createMessage() {
   const message = await client.messages.create({
-    body: "Second test :)",
+    body: "test notification message",
     from: "whatsapp:+14155238886",
     to: "whatsapp:+14134726195",
   });
