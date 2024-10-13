@@ -1,15 +1,16 @@
 "use client";
 
+import { readFile } from "fs/promises";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
 import { Heart, Activity } from "lucide-react"
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { data } from './util';
-import "./dashboard.css";
-import dataanalysisimg from "../Resource/dataanalysis.jpeg";
-import Image from "next/image";
+
+
+
 
 // Function to calculate Deviation in Minutes
 const calculateDeviationMinutes = (prescribedTime, tapTime) => {
@@ -27,7 +28,7 @@ const deviations = data.prescribedTimes.map((time, index) => {
 const X = data.prescribedTimes.map((time) => new Date(time).getTime() / 1000); // Convert to timestamps (seconds)
 const y = deviations;
 
-// Linear Regression function
+// Linear Regression function 
 const linearRegression = (X, y) => {
   const n = X.length;
   const xMean = X.reduce((a, b) => a + b) / n;
@@ -79,6 +80,22 @@ export default function Component() {
     setRiskLevel(getRiskLevel(deviation)); // Set risk level based on deviation
   };
 
+  useEffect(() => {
+    let allMedications = []
+
+    readFile("./PatientData.json", "utf-8", function read(err, data){
+      if(err){throw(err)}else{
+          let x = JSON.parse(data)
+          let patientMedications = x[0].medications
+
+          for (const [key, value] of Object.entries(patientMedications)){
+              allMedications.push(key)
+          }
+          console.log(allMedications)
+      }
+    })
+  }, []);
+
   return (
     <div className="flex h-screen bg-gray-100">
       {/* Sidebar */}
@@ -93,6 +110,7 @@ export default function Component() {
           </Button>
         </nav>
         <div className="mt-6 space-y-2">
+        <script src="/home/adpifive/PharmaWatch-1/clientside-frontend/pharmawatch-dashboard/HackHarvard/read_database.js"/>
           {[...Array(12)].map((_, i) => (
             <div key={i} className="flex items-center space-x-2">
               <div className="h-4 w-4 rounded-full bg-purple-200" />
@@ -110,7 +128,7 @@ export default function Component() {
             <div className="relative h-24 w-24">
               <Progress value={75} className="h-full w-full rounded-full" />
               <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-lg font-semibold progress-color">75%</span>
+                <span className="text-lg font-semibold">75%</span>
               </div>
             </div>
             <h2 className="text-2xl font-bold">TODAYS PROGRESS</h2>
@@ -147,7 +165,7 @@ export default function Component() {
                 </div>
                 <div>
                   <p className="text-sm font-semibold">Blood Group</p>
-                  <p>A+</p>
+                  <p>A +ve</p>
                 </div>
                 <div>
                   <p className="text-sm font-semibold">Age</p>
@@ -162,7 +180,7 @@ export default function Component() {
                   <p>Cardiology</p>
                 </div>
                 <div>
-                  <button onClick={handlePrediction} className="rick-perdict-button">Patient Risk Prediction</button>
+                  <button onClick={handlePrediction}>Patient 1</button>
                   {prediction && <p>{prediction}</p>} {/* Display prediction message */}
                   <p>Risk Level: {riskLevel}</p> {/* Display risk level */}
                 </div>
@@ -245,7 +263,6 @@ export default function Component() {
           <Card>
             <CardHeader>
               <CardTitle>PROGRESS PAST MONTH:</CardTitle>
-                <Image src={dataanalysisimg} alt={"data anlysis image"}/>
             </CardHeader>
             <CardContent>{/* Add progress chart or data here */}</CardContent>
           </Card>
