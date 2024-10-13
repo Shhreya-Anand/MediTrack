@@ -80,21 +80,28 @@ export default function Component() {
     setRiskLevel(getRiskLevel(deviation)); // Set risk level based on deviation
   };
 
-  useEffect(() => {
-    let allMedications = []
 
-    readFile("./PatientData.json", "utf-8", function read(err, data){
-      if(err){throw(err)}else{
-          let x = JSON.parse(data)
-          let patientMedications = x[0].medications
+    const [allMedications, setAllMedications] = useState<string[]>([]);
 
-          for (const [key, value] of Object.entries(patientMedications)){
-              allMedications.push(key)
+    useEffect(() => {
+      const fetchMedications = async () => {
+        try {
+          const response = await fetch('/PatientData.json');
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
           }
-          console.log(allMedications)
-      }
-    })
-  }, []);
+          const data = await response.json();
+          const patientMedications = data[0].medications;
+          const medicationsList = Object.keys(patientMedications);
+          setAllMedications(medicationsList);
+          console.log(medicationsList);
+        } catch (error) {
+          console.error('Error fetching medications:', error);
+        }
+      };
+  
+      fetchMedications();
+    }, []);
 
   return (
     <div className="flex h-screen bg-gray-100">
@@ -111,7 +118,7 @@ export default function Component() {
         </nav>
         <div className="mt-6 space-y-2">
         <script src="/home/adpifive/PharmaWatch-1/clientside-frontend/pharmawatch-dashboard/HackHarvard/read_database.js"/>
-          {[...Array(12)].map((_, i) => (
+          {[...allMedications].map((_, i) => (
             <div key={i} className="flex items-center space-x-2">
               <div className="h-4 w-4 rounded-full bg-purple-200" />
               <div className="h-2 flex-1 bg-gray-200" />
